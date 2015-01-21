@@ -4,11 +4,12 @@
 
     using MongoMigrations;
 
-    public class CreateTestCollection : Migration
+    public class CreateTestCollection : MigrationScript
     {
         public CreateTestCollection()
             : base("0.0.0")
         {
+            this.Description = "This will create a collection called test if the database is brand new (no migrations yet)";
         }
 
         public override void Update()

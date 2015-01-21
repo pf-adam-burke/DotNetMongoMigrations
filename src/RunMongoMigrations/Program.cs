@@ -25,12 +25,16 @@ namespace RunMongoMigrations
             */
 
             var runner = new MigrationRunner("mongodb://ipaas_mongo_user:ipaas_mongo_password@localhost", "Authentication");
-            runner.MigrationLocator.LookForMigrationsInAssemblyOfType<RunMongoMigrations.MigrationScripts.CreateTestCollection>();
-            runner.DatabaseStatus.ThrowIfNotLatestVersion();
+
+            // Get the database version
+            var current = runner.DatabaseStatus.GetVersion();
+
+            runner.MigrationLocator.LookForMigrationsInAssemblyOfType<MigrationScripts.MigrationScript>();
+            //runner.DatabaseStatus.ThrowIfNotLatestVersion();
 
 			try
 			{
-				runner.UpdateToLatest();
+			    runner.UpdateToLatest();
 				return 0;
 			}
 			catch (MigrationException e)
