@@ -8,7 +8,8 @@ namespace RunMongoMigrations
 	{
 		public static int Main(string[] args)
 		{
-			if (args.Length < 3)
+			/*
+            if (args.Length < 3)
 			{
 				Console.WriteLine("Usage: RunMongoMigrations server[:port] databaseName migrationAssembly");
 				return 1;
@@ -21,6 +22,11 @@ namespace RunMongoMigrations
 			var runner = new MigrationRunner(("mongodb://" + server), database);
 
 			runner.MigrationLocator.LookForMigrationsInAssembly(Assembly.LoadFrom(migrationsAssembly));
+            */
+
+            var runner = new MigrationRunner("mongodb://ipaas_mongo_user:ipaas_mongo_password@localhost", "Authentication");
+            runner.MigrationLocator.LookForMigrationsInAssemblyOfType<RunMongoMigrations.MigrationScripts.CreateTestCollection>();
+            runner.DatabaseStatus.ThrowIfNotLatestVersion();
 
 			try
 			{
