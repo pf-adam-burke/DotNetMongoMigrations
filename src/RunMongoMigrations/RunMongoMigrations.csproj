@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="MigrationScripts\CreateTest2Collection.cs" />
     <Compile Include="MigrationScripts\MigrationScript.cs" />
+    <Compile Include="MigrationScripts\RenameCustomerProductsToNavigationItems.cs" />
     <Compile Include="MigrationScripts\RenameTest2CollectionToTest3.cs" />
     <Compile Include="MigrationScripts\CreateTestCollection.cs" />
     <Compile Include="Program.cs" />
