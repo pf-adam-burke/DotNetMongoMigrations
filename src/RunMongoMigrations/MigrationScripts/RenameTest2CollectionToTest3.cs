@@ -9,7 +9,7 @@
         public RenameTest2CollectionToTest3()
             : base("0.0.2")
         {
-            this.Description = "This will change the name of test collection to test2 if the database version is 0.0.2";
+            this.Description = "This will change the name of test collection to test2 if the database version is 0.0.1";
         }
 
         public override void Update()
