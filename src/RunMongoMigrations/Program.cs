@@ -26,9 +26,6 @@ namespace RunMongoMigrations
 
             var runner = new MigrationRunner("mongodb://ipaas_mongo_user:ipaas_mongo_password@localhost", "Authentication");
 
-            // Get the database version
-            var current = runner.DatabaseStatus.GetVersion();
-
             runner.MigrationLocator.LookForMigrationsInAssemblyOfType<MigrationScripts.MigrationScript>();
             //runner.DatabaseStatus.ThrowIfNotLatestVersion();
 
